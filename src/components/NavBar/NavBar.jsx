@@ -4,14 +4,16 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link, NavLink } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget';
 
 const NavBar = () => {
     return (
         <>
-            <Navbar bg="info bg-opacity-25" expand="lg" fixed="top">
+            <Navbar bg="info bg-opacity-100" expand="lg" fixed="top">
             <Container fluid>
-                <Navbar.Brand href="#">Tienda de Buceo</Navbar.Brand>
+                {/* <Navbar.Brand href="#">Tienda de Buceo</Navbar.Brand> */}
+                <Link to='/'>Tienda de Buceo</Link>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -19,22 +21,13 @@ const NavBar = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1" >Destacados</Nav.Link>
-                        <NavDropdown title="Buceo Profesional" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">Cascos</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Umbilicales</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Cuchillos</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action5">Contactarme con un representante tecnico</NavDropdown.Item>
-                        </NavDropdown>
-                        <NavDropdown title="Buceo Recreativo" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">Reguladores</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Lunetas</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Aletas</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Botellones</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action5">Contactarme con un representante tecnico</NavDropdown.Item>
-                        </NavDropdown>
+                        <NavLink to='/categoria/cascosYmascaras' className= {({isActive})=> isActive ? 'btn btn-primary m-1' : 'btn btn-outline-primary m-1'} >Cascos y mascaras</NavLink>
+                        <NavLink to='/categoria/umbilicales' className= {({isActive})=> isActive ? 'btn btn-primary m-1' : 'btn btn-outline-primary m-1'} >Umbilicales</NavLink>
+                        <NavLink to='/categoria/cuchillos' className= {({isActive})=> isActive ? 'btn btn-primary m-1' : 'btn btn-outline-primary m-1'} >Cuchillos</NavLink>
+                        <NavLink to='/categoria/reguladores' className= {({isActive})=> isActive ? 'btn btn-primary m-1' : 'btn btn-outline-primary m-1'} >Reguladores</NavLink>
+                        <NavLink to='/categoria/lunetas' className= {({isActive})=> isActive ? 'btn btn-primary m-1' : 'btn btn-outline-primary m-1'} >Lunetas</NavLink>
+                        <NavLink to='/categoria/aletas' className= {({isActive})=> isActive ? 'btn btn-primary m-1' : 'btn btn-outline-primary m-1'} >Aletas</NavLink>
+                        <NavLink to='/categoria/botellones' className= {({isActive})=> isActive ? 'btn btn-primary m-1' : 'btn btn-outline-primary m-1'} >Botellones</NavLink>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control
@@ -43,7 +36,7 @@ const NavBar = () => {
                         className="me-2"
                         aria-label="Search"
                         />
-                        <Button variant="outline-light">Buscar</Button>
+                        <Button >Buscar</Button>
                     </Form>
                     <CartWidget/>
                 </Navbar.Collapse>
