@@ -1,5 +1,3 @@
-
-
 let productos = [{
         id: '1',
         categoria: 'buceoProfesional',
@@ -111,12 +109,12 @@ let productos = [{
         foto: 'https://www.cascoantiguopro.com/31123-large_default/botella-acero-15-l-200-bar-sgrifo.jpg'
     }
 ]
-
-export const gFetch = () => {
+export const gFetch = (id) => {
     return new Promise((res, rej) => {
-        setTimeout(() => {
-            res(productos)
-        }, 1500)
-    })
+            setTimeout(() => {
+                res(id ? productos.find( producto => producto.id === id) : productos)
+            }, 1000)
+        }
+    )
 }
 

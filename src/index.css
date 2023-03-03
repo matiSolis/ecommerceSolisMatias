@@ -21,7 +21,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #232deb;
 }
 
 body {
@@ -30,6 +30,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url("https://res.cloudinary.com/matisolis/image/upload/v1676148242/juego/jim-beaudoin-pFoq-2zg82g-unsplash_uggate.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1 {

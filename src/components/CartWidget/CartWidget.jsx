@@ -1,10 +1,11 @@
-
+import { Link } from "react-router-dom"
+import { useCartContext } from "../../context/CartContext"
 
 const CartWidget = () => {
+  const { cantidadTotal } = useCartContext()
   return (
     <div className="mx-3 d-flex flex-row">
-      <div>🛒</div>
-      <div className="bg-danger text-white rounded-circle px-2">1</div>
+      <div> {cantidadTotal() !== 0 && cantidadTotal()}<Link to="/cart" >🛒</Link></div>
     </div>
   )
 }
