@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { useCartContext } from "../../context/CartContext"
 
 const ItemCount = ({initial=1, stock=10, onAdd}) => {
     const [count, setCount] = useState(initial)
-    const {agregarCarrito} = useCartContext()
     const handleSumar =()=>{
         if (count < stock) {
             setCount(count + 1)
@@ -14,8 +12,9 @@ const ItemCount = ({initial=1, stock=10, onAdd}) => {
             setCount(count - 1)
         }
     }
-
-
+    const handleOnAdd = ()=>{
+        onAdd(count)        
+    }
     return (
         <div className='card'>
             <div className='card-body col'>
@@ -24,10 +23,10 @@ const ItemCount = ({initial=1, stock=10, onAdd}) => {
                 <button className='btn btn-primary mx-auto' onClick={handleSumar}>+</button>
             </div>
             <div>
-                <button className='btn btn-primary w-25' onClick={agregarCarrito}>Agregar al carrito</button>
+                <button className='btn btn-primary w-25' onClick={handleOnAdd}>Agregar al carrito</button>
             </div>
         </div>
     )
 }
 
-export default ItemCount
+export default ItemCount

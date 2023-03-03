@@ -11,7 +11,7 @@ const Componente = ()=> {
             backgroundColor: 'grey',
             display: 'absolute',
             float: 'right'
-        }}>contenido carrito<Link to="/cart" >Completar la compra</Link></div>
+        }}>contenido carrito<Link to="/cart" >Finalizar la compra</Link></div>
     )
 }
 const ItemDetail = ({producto}) => {
@@ -40,6 +40,7 @@ const ItemDetail = ({producto}) => {
                 <p className="mt-3">Stock disponible: {producto.stock}</p>
             </div>
             <div>
+                <button onClick={handleCart}>carrito</button>
                 {
                     isCount
                     ?
