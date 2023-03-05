@@ -1,11 +1,9 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link, NavLink } from 'react-router-dom';
-import CartWidget from '../CartWidget/CartWidget';
+import CartWidget from '../cartWidget/CartWidget';
 
 const NavBar = () => {
     return (
@@ -22,26 +20,17 @@ const NavBar = () => {
                         >
                             {/* No puedo cambiar el color de fondo del dropDown */}
                             <NavDropdown className='ms-5' title="Buceo Profesional" id="navbarScrollingDropdown">
-                                <NavLink to='/categoria/cascosYmascaras' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Cascos y mascaras</NavLink>
-                                <NavLink to='/categoria/umbilicales' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Umbilicales</NavLink>
-                                <NavLink to='/categoria/cuchillos' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Cuchillos</NavLink>
+                                <NavLink to='/category/helmetAndMask' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Cascos y mascaras</NavLink>
+                                <NavLink to='/category/umbilicals' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Umbilicales</NavLink>
+                                <NavLink to='/category/knife' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Cuchillos</NavLink>
                             </NavDropdown>
                             <NavDropdown className='ms-5' title="Buceo Recreativo" id="navbarScrollingDropdown">
-                                <NavLink to='/categoria/reguladores' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Reguladores</NavLink>
-                                <NavLink to='/categoria/lunetas' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Lunetas</NavLink>
-                                <NavLink to='/categoria/aletas' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Aletas</NavLink>
-                                <NavLink to='/categoria/botellones' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Botellones</NavLink>
+                                <NavLink to='/category/regulators' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Reguladores</NavLink>
+                                <NavLink to='/category/diveMask' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Lunetas</NavLink>
+                                <NavLink to='/category/fins' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Aletas</NavLink>
+                                <NavLink to='/category/scubaTank' className= {({isActive})=> isActive ? 'btn btn-primary m-1 d-flex flex-column mb-3' : 'btn btn-outline-primary m-1 d-flex flex-column mb-3'} >Botellones</NavLink>
                             </NavDropdown>
                         </Nav>
-                        <Form className="d-flex">
-                            <Form.Control
-                            type="search"
-                            placeholder="Estoy buscando..."
-                            className="me-2"
-                            aria-label="Search"
-                            />
-                            <Button>Buscar</Button>
-                        </Form>
                         <CartWidget/>
                     </Navbar.Collapse>
                 </Container>

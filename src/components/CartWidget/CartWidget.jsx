@@ -2,10 +2,13 @@ import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
 
 const CartWidget = () => {
-  const { cantidadTotal } = useCartContext()
+  const { totalQuantity } = useCartContext()
   return (
-    <div className="mx-3 d-flex flex-row">
-      <div> {cantidadTotal() !== 0 && cantidadTotal()}<Link to="/cart" >🛒</Link></div>
+    <div className="m-2 d-flex flex-row">
+      <p className="m-1 p-1 text-white"> {totalQuantity() !== 0 && totalQuantity()}</p>
+      <div className="p-1">
+        <Link to="/cart" >🛒</Link>
+      </div>
     </div>
   )
 }

@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
-import { Loading } from "../Loading/Loading";
-import ItemList from "../ItemList/ItemList";
+import { Loading } from "../loading/Loading";
+import ItemList from "../itemList/ItemList";
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
-  const [productos, setProductos] = useState([])
+  const [products, setProducts] = useState([])
   const [ loading, setLoading ] = useState(true)
-  const {idCategoria} = useParams()
+  const {idCategory} = useParams()
 
   useEffect(()=>{
     const db = getFirestore()
-    const queryCollections = collection(db, 'Productos')
-    const queryFilter = idCategoria ? query(queryCollections, where('subCategoria','==', idCategoria) ) : queryCollections 
+    const queryCollections = collection(db, 'Products')
+    const queryFilter = idCategory ? query(queryCollections, where('subCategory','==', idCategory) ) : queryCollections 
     getDocs(queryFilter)
-    .then(resp =>setProductos(resp.docs.map(product=>({id: product.id,...product.data()}))))
+    .then(resp =>setProducts(resp.docs.map(product=>({id: product.id,...product.data()}))))
     .catch(err => console.log(err))
     .finally(()=>setLoading(false))
-  },[idCategoria])
+  },[idCategory])
+console.log(products)
 
   return (
       loading 
@@ -31,7 +32,7 @@ const ItemListContainer = () => {
           flexWrap: 'wrap',
           marginTop: 50,
         }}>
-          <ItemList productos = {productos} />
+          <ItemList products = {products} />
         </div>
       </>
   )
